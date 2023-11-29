@@ -1,0 +1,10 @@
+- id: coordinator
+  translation: "KoordinatorInnen"
+- id: member
+  translation: "Mitglieder"
+- id: associate
+  translation: "assoziierte Mitglieder"
+- id: former member
+  translation: "ehemalige Mitglieder"
+- id: readMore
+  translation: "Vollständige Beschreibung lesen"

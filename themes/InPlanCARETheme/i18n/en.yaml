@@ -1,0 +1,10 @@
+- id: coordinator
+  translation: "coordinators"
+- id: member
+  translation: "members"
+- id: associate
+  translation: "associates"
+- id: former member
+  translation: "former Member"
+- id: readMore
+  translation: "Read complete description"

@@ -1,0 +1,27 @@
+{{ define "main" -}}
+    {{ .Content }}
+    <div class="activityList">
+        {{ range.RegularPages.ByDate.Reverse -}}
+            <div class="row activityBox mt-2 mb-2">
+                <div class="col-12 mt-2 mb-2">
+                    <div class="row activityInnerbox">
+                        {{ if isset .Params "photo" }}
+                            <div class="col-12 col-md-4 mt-2 mb-2 activity-image-list">
+                                <img src="/activityImages/{{ .Params.photo }}" class="img-fluid">
+                            </div>
+                        {{ end }}
+                        <div class="col-12 {{ if isset .Params "photo" }}col-md-8{{ end }} mt-2 mb-2">
+                            {{ .Date | time.Format ":date_long" }}
+                            <h3>{{ .Title | title }}</h3>
+                            <p>{{ .Summary }}{{ if .Truncated }} ...{{ end }}</p>
+                            <a href="{{ .RelPermalink }}">{{ if .Truncated }}{{ i18n "readMore" }}{{ else }}Link{{ end }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{- end }}
+    </div>
+{{- end }}
+
+
+

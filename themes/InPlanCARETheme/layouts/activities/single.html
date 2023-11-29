@@ -1,0 +1,23 @@
+{{ define "title" -}}
+    <p></p> <!-- an empty block doesn't overwrite the default -->
+{{- end }}
+{{ define "main" -}}
+    <div class="row activityBox mt-2 mb-2">
+        <div class="col-12 mt-2 mb-2">
+            <div class="row activityInnerbox">
+                <div class="col-12 mt-2 mb-2 text-center">
+                    <h1>{{ .Title }}</h1>
+                    {{ .Date | time.Format ":date_long" }}
+                </div>
+                {{ if isset .Params "photo" }}
+                    <div class="col-12 mt-2 mb-2 activity-image-single">
+                        <img src="/activityImages/{{ .Params.photo }}" class="img-fluid">
+                    </div>
+                {{ end }}
+                <div class="col-12 mt-2 mb-2 text-center">
+                    <p>{{ .Content }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{{- end }}

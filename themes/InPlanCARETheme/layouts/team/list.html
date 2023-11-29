@@ -1,0 +1,66 @@
+{{ define "main" -}}
+    {{ .Content }}
+    <div class="row peopleList">
+        {{ $roles := slice "coordinator" "member" "associate" "former member" }}
+        {{ range $role := $roles }}
+            {{ with where site.RegularPages "Params.role" $role }}
+                <div class="mt-4">
+                    {{ $membersWithEmail := sort (where . ".Params.email" "!=" nil) ".Params.lastname" }}
+                    <h2>
+                        {{ i18n $role | title }}
+                        {{ if and (eq $role "coordinator") ($membersWithEmail) }}
+                            <a href="mailto:{{ range $membersWithEmail }}{{ .Params.email }},{{- end }}">
+                                <img type="image/png" src="/email.png"/>
+                            </a>
+                        {{- end }}
+                    </h2>
+                </div>
+                {{ range sort . ".Params.lastname" }}
+                    <div class="col-12 col-lg-6">
+                        <div class="row personBox mt-2 mb-2">
+                            <div class="col-12 mt-2 mb-2">
+                                <div class="row personInnerbox">
+                                    {{ $member := . }}
+                                    <div class="col-12 col-md-2 mt-2 mb-2 person-image">
+                                        {{ if isset .Params "photo" }}
+                                            <img src="/teamImages/{{ .Params.photo }}" class="img-fluid" alt="{{ .Params.firstname }} {{ .Params.lastname }}">
+                                        {{ end }}
+                                    </div>
+                                    <div class="col-12 col-md-10">
+                                        <h3>
+                                            {{ if isset .Params "homepage" }}
+                                                <a href="{{ .Params.homepage }}">
+                                            {{- end }}
+                                            {{ .Params.titles }} {{ .Params.firstname }} {{ .Params.lastname }}
+                                            {{ if isset .Params "homepage" }}
+                                                </a>
+                                            {{- end }}
+                                            {{ if isset .Params "email" }}
+                                                <a href="mailto:{{ .Params.email }}"><img type="image/png" src="/email.png"/></a>
+                                            {{- end }}
+                                        </h3>
+                                        <ul class="personTable">
+                                            {{ range $key := slice "university" "researchInterests" }}
+                                                {{ if $member.Param $key }}
+                                                    <li><label><img type="image/png" src="/{{ $key }}.png"/></label><div class="value">{{ $member.Param $key }}</div></li>
+                                                {{- end }}
+                                            {{- end }}
+                                        </ul>
+                                        {{ .Content }}
+                                        <ul class="personIcons">
+                                            {{ range $key := slice "homepage" "googleScholar" "orcid" }}
+                                                {{ if $member.Param $key }}
+                                                    <li><a href="{{ $member.Param $key }}" title="{{ $key | humanize }}"><img type="image/png" src="/{{ $key }}.png"/></a></li>
+                                                {{- end }}
+                                            {{- end }}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{- end }}
+            {{- end }}
+        {{- end }}
+    </div>
+{{- end }}

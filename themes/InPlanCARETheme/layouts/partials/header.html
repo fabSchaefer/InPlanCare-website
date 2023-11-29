@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-sm">
+  <a class="navbar-brand" href="{{ .Site.BaseURL | relLangURL }}">
+    <h1>{{ .Site.Title }}</h1>
+  </a>
+  <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu" aria-controls="navbarNavAltMarkup" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="mainMenu">
+    <ul class="navbar-nav ms-auto">
+      {{- range site.Menus.main }}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ .URL }}">{{ if .Page.Params.menuTitle }}{{ .Page.Params.menuTitle }}{{ else }}{{ .Page.Title }}{{ end }}</a>
+        </li>
+      {{- end }}
+    </ul>
+  </div>
+</nav>

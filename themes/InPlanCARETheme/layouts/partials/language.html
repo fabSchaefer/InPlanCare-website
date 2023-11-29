@@ -1,0 +1,14 @@
+{{ if .Site.IsMultiLingual }}
+  <div class="languageSelector" align="right">
+    <div class="languages">
+      {{ range $index, $element := .AllTranslations }}
+        {{ if gt $index 0 }}|{{ end }}
+        {{ if eq .Language $.Site.Language }}
+          {{ .Language.LanguageName }}
+        {{ else }}
+          <a title="{{ .Language.LanguageName }}" href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+{{ end }}

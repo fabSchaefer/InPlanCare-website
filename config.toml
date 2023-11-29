@@ -1,0 +1,16 @@
+baseURL = 'http://example.org/'
+title = 'InPlanCARE'
+theme = 'InPlanCARETheme'
+
+buildFuture = true
+
+[markup.goldmark.renderer]
+  hardWraps = true
+
+[languages]
+  [languages.en]
+    LanguageName = 'en'
+    weight = 1
+  [languages.de]
+    LanguageName = 'de'
+    weight = 2
