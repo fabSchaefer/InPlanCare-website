@@ -7,6 +7,6 @@ In October 2023 the InPlan-CARE members gathered from all over Europe in Aachen 
 
 A highlight of the event was the collaborative sessions where the participating researchers strategized on how to amplify the impact of their work. The discussions focused on bringing together various expertises, strengthening collaborations beyond healthcare systems, and identifying synergies that can drive the consortium's objectives forward.
 
-Tom Lorenz Klein, PhD candidate, TU Münich, Germany: "This week, I was reminded of the invaluable asset that a strong research network like "inplancare" represents. In Aachen, we had an intensive exchange of ideas and brainstormed future research directions. The collaboration and collegial environment of the network are awe-inspiring, and I'm proud to be a part of this community. I'm particularly struck by the depth of expertise and commitment of each member."
+
 
 For more information about InPlan-CARE and future events, please visit our website.
