@@ -1,7 +1,7 @@
 ---
 firstname: "Clemens"
 lastname: "Wolff"
-role: "member"
+role: "former member"
 university: "KIT"
 homepage: "https://dsi.iism.kit.edu/team_wolff.php"
 ---
